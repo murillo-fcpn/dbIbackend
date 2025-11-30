@@ -24,6 +24,15 @@ def create_app(config_name="default"):
     from .resources.conductores import conductores_ns
     from .resources.vehiculos import vehiculos_ns
     from .resources.rutas import rutas_ns
+    from .resources.zonas import zonas_ns
+    from .resources.sensores import sensores_ns
+    from .resources.lecturas_sensor import lecturas_sensor_ns
+    from .resources.alertas_ambientales import alertas_ambientales_ns
+    from .resources.permisos import permisos_ns
+    from .resources.roles import roles_ns
+    from .resources.cuentas import cuentas_ns
+    from .resources.ciudadanos import ciudadanos_ns
+    from .resources.notificaciones import notificaciones_ns
 
     api.add_namespace(servicios_ns, path="/api/servicios")
     api.add_namespace(proveedores_ns, path="/api/proveedores")
@@ -36,6 +45,15 @@ def create_app(config_name="default"):
     api.add_namespace(conductores_ns, path="/api/conductores")
     api.add_namespace(vehiculos_ns, path="/api/vehiculos")
     api.add_namespace(rutas_ns, path="/api/rutas")
+    api.add_namespace(zonas_ns, path="/api/zonas")
+    api.add_namespace(sensores_ns, path="/api/sensores")
+    api.add_namespace(lecturas_sensor_ns, path="/api/lecturas-sensor")
+    api.add_namespace(alertas_ambientales_ns, path="/api/alertas-ambientales")
+    api.add_namespace(permisos_ns, path="/api/permisos")
+    api.add_namespace(roles_ns, path="/api/roles")
+    api.add_namespace(cuentas_ns, path="/api/cuentas")
+    api.add_namespace(ciudadanos_ns, path="/api/ciudadanos")
+    api.add_namespace(notificaciones_ns, path="/api/notificaciones")
 
     # Registrar comandos CLI
     from .commands import register_commands
