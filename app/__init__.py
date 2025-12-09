@@ -1,6 +1,8 @@
 from flask import Flask
 from .config import config
 from .extensions import db, migrate, api
+from flask_cors import CORS
+
 
 
 def create_app(config_name="default"):
@@ -11,7 +13,7 @@ def create_app(config_name="default"):
     db.init_app(app)
     migrate.init_app(app, db)
     api.init_app(app)
-
+    CORS(app)
     # Registrar namespaces
     from .resources.servicios import servicios_ns
     from .resources.proveedores import proveedores_ns

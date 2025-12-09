@@ -7,3 +7,4 @@ python-dotenv
 marshmallow
 marshmallow-sqlalchemy
 python-dateutil
+flask-cors
