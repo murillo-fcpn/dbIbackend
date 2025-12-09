@@ -13,7 +13,16 @@ def create_app(config_name="default"):
     db.init_app(app)
     migrate.init_app(app, db)
     api.init_app(app)
-    CORS(app)
+    
+    # Configurar CORS correctamente
+    CORS(app, resources={
+        r"/api/*": {
+            "origins": ["http://localhost:4200"],
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"],
+            "supports_credentials": True
+        }
+    })
     # Registrar namespaces
     from .resources.servicios import servicios_ns
     from .resources.proveedores import proveedores_ns
